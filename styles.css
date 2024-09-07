@@ -4,7 +4,11 @@
 /* Estiliza o corpo da página */
 body {
     font-family: "Chakra Petch", sans-serif; /* Define a fonte padrão */
-    background-color: #DDDDDD; /* Cor de fundo da página */
+    background-image: url('https://img.freepik.com/fotos-premium/futuro-robo-de-inteligencia-artificial-e-fundo-do-sistema-de-rede_432372-88.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
     align-items: center; /* Centraliza os itens horizontalmente */
@@ -14,12 +18,81 @@ body {
     padding: 0; /* Remove o padding padrão */
 }
 
+.intro {
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 2rem; /* Espaçamento interno */
+    background: linear-gradient(135deg, #a05fc1, #6c63ff, #1e90ff);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    margin-bottom: 2rem; /* Espaçamento abaixo da introdução */
+    max-width: 90%; /* Largura máxima para manter a responsividade */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    position: relative; /* Posiciona elementos filhos relativos a este container */
+    overflow: hidden; /* Oculta partes do conteúdo que ultrapassam o container */
+    border-radius: 15px; /* Arredonda todos os quatro cantos */
+}
+
+/* Adiciona um efeito de imagem de fundo sutil */
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; /* Opacidade da imagem de fundo */
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+}
+
+/* Estiliza o título dentro da introdução */
+.intro h2 {
+    font-size: 2.2rem; /* Tamanho da fonte maior */
+    color: #333; /* Cor do texto mais escura */
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
+    font-weight: 600; /* Peso da fonte mais forte */
+}
+
+/* Estiliza o parágrafo dentro da introdução */
+.intro p {
+    font-size: 1.1rem; /* Tamanho da fonte ligeiramente maior */
+    color: #ffffff; /* Cor do texto um pouco mais clara */
+    line-height: 1.8; /* Altura da linha para melhorar a legibilidade */
+    max-width: 70%; /* Largura máxima para melhor leitura */
+    margin: 0 auto; /* Centraliza o parágrafo horizontalmente */
+    margin-bottom: 1rem; /* Espaçamento abaixo dos parágrafos */
+}
+
+/* Estiliza o botão de pesquisa dentro da introdução */
+.intro button {
+    padding: 0.8rem 1.5rem; /* Espaçamento interno do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 1.5rem; /* Borda arredondada */
+    background-color: #30475E; /* Cor de fundo do botão */
+    color: #F5F7F8; /* Cor do texto do botão */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para a cor de fundo e efeito de transformação */
+}
+
+/* Adiciona efeito hover ao botão de pesquisa */
+.intro button:hover {
+    background-color: #1A2A3A; /* Muda a cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
 /* Estiliza os títulos h1 */
 h1 {
     font-size: 2.5rem; /* Tamanho da fonte */
-    color: #222831; /* Cor do texto */
+    color: #edf0f3; /* Cor do texto */
     text-align: center; /* Alinha o texto ao centro */
     letter-spacing: 0.4rem; /* Espaçamento entre letras */
+
+    /* Efeito de borda nas letras */
+    text-shadow: 2px 2px 0 #1F2D3D, /* Sombra para simular a borda */
+                 -2px 2px 0 #1F2D3D, 
+                 2px -2px 0 #1F2D3D, 
+                 -2px -2px 0 #1F2D3D;
 }
 
 /* Estiliza as seções da página */
@@ -27,7 +100,10 @@ section {
     display: flex; /* Usa Flexbox para layout */
     flex-direction: column; /* Alinha os itens na vertical */
     align-items: center; /* Centraliza os itens horizontalmente */
-    margin-bottom: 3rem; /* Espaçamento abaixo de cada seção */
+    width: 100%; /* Largura total da seção */
+    max-width: 80rem; /* Limita a largura máxima da seção */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    margin: 0 auto; /* Centraliza a seção horizontalmente */
 }
 
 /* Estiliza os inputs dentro das seções */
@@ -58,15 +134,38 @@ section button:hover {
     background-color: #30475E; /* Muda a cor de fundo ao passar o mouse */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
 }
+/* Adiciona uma classe para ocultar a seção de resultados inicialmente */
+.hidden {
+    display: none;
+}
 
 /* Estiliza a caixa de resultados da pesquisa */
 .resultados-pesquisa {
-    width: 60rem; /* Largura máxima da caixa de resultados */
+    width: 100%; /* Largura total da caixa de resultados */
+    max-width: 60rem; /* Largura máxima da caixa de resultados */
     height: 46vh; /* Altura máxima da caixa de resultados */
     overflow-y: auto; /* Adiciona rolagem vertical se necessário */
     margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
     padding: 1rem; /* Espaçamento interno */
     border-radius: 0.6rem; /* Borda arredondada */
+    background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo com leve opacidade */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+
+/* Estiliza a caixa de resultados da pesquisa */
+.resultados-pesquisa {
+    width: 100%; /* Largura total da caixa de resultados */
+    max-width: 60rem; /* Largura máxima da caixa de resultados */
+    height: 46vh; /* Altura máxima da caixa de resultados */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 0.6rem; /* Borda arredondada */
+    background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo com leve opacidade */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
 /* Estiliza cada item de resultado */
@@ -76,6 +175,25 @@ section button:hover {
     padding: 1rem; /* Espaçamento interno */
     margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Estiliza o link "Experimente" dentro dos itens de resultado */
+.item-resultado a.experimente {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0.6rem;
+    background-color: #30475E;
+    color: #F5F7F8;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estiliza o link "Experimente" quando clicado */
+.item-resultado a.experimente:active {
+    background-color: #1A2A3A;
 }
 
 /* Estiliza os títulos dentro dos itens de resultado */
@@ -98,21 +216,50 @@ section button:hover {
 /* Estiliza a descrição meta dentro dos itens de resultado */
 .descricao-meta {
     color: #45474B; /* Cor do texto */
-    margin: 0.5rem 0; /* Margem acima e abaixo */
+    margin: 0.5rem 0; /* Margem superior e inferior */
+    font-size: 0.9rem; /* Tamanho da fonte */
+}
+
+/* Estiliza a descrição de cada item */
+.descricao-item {
+    font-family: 'Roboto', sans-serif; /* Altere para a fonte desejada */
+    background-color: #F9F9F9;
+    padding: 1rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Estiliza o título da descrição */
+.descricao-item h3 {
+    font-family: 'Roboto', sans-serif; /* Altere para a fonte desejada */
+    font-size: 1.2rem;
+    color: #30475E;
+    margin-bottom: 0.5rem;
+}
+
+/* Estiliza o parágrafo da descrição */
+.descricao-item p {
+    font-family: 'Roboto', sans-serif; /* Altere para a fonte desejada */
+    margin: 0.5rem 0;
+    line-height: 1.6;
 }
 
 /* Estiliza o rodapé da página */
 footer {
-    background-color: #F5F7F8; /* Cor de fundo do rodapé */
-    color: #45474B; /* Cor do texto */
+    background-color: #553064; /* Cor de fundo do rodapé */
+    border-radius: 0.6rem;
+    color: #ffffff; /* Cor do texto */
     text-align: center; /* Alinha o texto ao centro */
-    padding: 0; /* Espaçamento interno */
+    padding: 1rem; /* Espaçamento interno */
     width: 100%; /* Largura total da página */
-    position: absolute; /* Posiciona o rodapé */
+    position:relative; /* Ajusta o rodapé para que ele não fique fixo */
     bottom: 0; /* Alinha ao fundo da página */
     font-size: 1rem; /* Tamanho da fonte */
+    margin-top: auto;
 }
 
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem; /* Tamanho da fonte em telas menores */
@@ -136,7 +283,6 @@ footer {
 
 /* Responsividade para celulares */
 @media (max-width: 480px) {
-
     h1 {
         font-size: 1.8rem; /* Tamanho da fonte em telas pequenas */
         letter-spacing: 0.1rem; /* Espaçamento entre letras em telas pequenas */

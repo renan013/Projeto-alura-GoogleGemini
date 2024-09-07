@@ -32,7 +32,7 @@ O projeto é composto por três arquivos principais:
 
 ## Conclusão
 
-O Projeto Alura & Google Gemini é uma aplicação simples e eficaz para aprender conceitos básicos de desenvolvimento web. Ele combina HTML, CSS e JavaScript para criar uma experiência interativa de pesquisa. A aplicação pode ser facilmente expandida e personalizada para atender a necessidades específicas ou incluir funcionalidades adicionais.
+O Projeto Alura & Google Gemini é uma aplicação simples e eficaz para aprender conceitos básicos de desenvolvimento web. Ele combina HTML, CSS e JavaScript para criar uma experiência interativa de pesquisa. A aplicação pode ser facilmente expandida e personalizada para atender a necessidades específicas ou incluir funcionalidades adicionais.Ao longo dos dias fui me aprofundando em tecnicas de css e utilizei a IA do google gemini para exemplos de estilização e uma melhor funcionalidade do site.
 
 Para mais informações ou para contribuir com o projeto,  entre em contato pelo e-mail renansena35@gmail.com .
 

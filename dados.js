@@ -1,4 +1,4 @@
-const dados = [
+let dados = [
     {
         titulo: "Google Gemini",
         descricao: `
